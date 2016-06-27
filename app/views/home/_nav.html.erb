@@ -1,0 +1,21 @@
+<nav class="nav">
+  <div class="nav-left">
+    <%= link_to root_path, class: 'nav-item' do %>
+      <%= image_tag asset_path('RocketQA.png'), alt: 'RocketQA' %>
+    <% end %>
+    <%= link_to 'Features', '#', class: 'nav-item' %>
+    <%= link_to 'Pricing', '#', class: 'nav-item' %>
+  </div>
+
+  <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+  <div class="nav-right nav-menu">
+    <span class="nav-item">
+      <%= link_to 'Sign in', '#', class: 'button', id: 'signin' %>
+    </span>
+  </div>
+</nav>
