@@ -14,17 +14,13 @@ set :rbenv_type, :user
 set :rails_env, 'production'
 set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 set :rbenv_roles, :all
-set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets)
+set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets public/assets)
 
-set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
-set :unicorn_config_path, 'config/unicorn.rb'
-set :unicorn_rack_env, 'production'
 set :default_env, 'SECRET_KEY_BASE' => ENV['SECRET_KEY_BASE']
 user = "ubuntu"
 ip = "52.197.94.121"
 key_path = ENV['KEY_PATH']
 server ip, port: 22,
-           roles: %w(web app db),
            user: user,
            ssh_options: {
              user: user,
@@ -54,12 +50,6 @@ server ip, port: 22,
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
 
 # Custom SSH Options
 # ==================
