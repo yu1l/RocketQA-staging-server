@@ -7,11 +7,9 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-set :application, 'rocketqa'
-set :repo_url, 'git@github.com:MakerHubLive/RocketQA.git'
-set :branch, 'develop'
 set :deploy_to, '/home/ubuntu/rocketqa'
 
+set :rbenv_ruby, '2.3.1'
 set :rbenv_type, :user
 set :rails_env, 'production'
 set :rbenv_map_bins, %w(rake gem bundle ruby rails)
@@ -24,12 +22,12 @@ set :unicorn_rack_env, 'production'
 set :default_env, 'SECRET_KEY_BASE' => ENV['SECRET_KEY_BASE']
 user = "ubuntu"
 ip = "52.197.94.121"
-key_path = '~/.ssh/taskapp'
+key_path = ENV['KEY_PATH']
 server ip, port: 22,
            roles: %w(web app db),
-           user: 'ubuntu',
+           user: user,
            ssh_options: {
-             user: 'ubuntu',
+             user: user,
              keys: key_path,
              auth_methods: %w(publickey)
            }
