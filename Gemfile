@@ -7,6 +7,9 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'headless'
+gem 'selenium-webdriver'
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails',   require: false

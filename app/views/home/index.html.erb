@@ -1,0 +1,27 @@
+  <link href="http://vjs.zencdn.net/5.10.4/video-js.css" rel="stylesheet">
+  <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="/sample.png" data-setup="{}">
+    <source src="/sample.mp4" type='video/mp4'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+  <script src="http://vjs.zencdn.net/5.10.4/video.js"></script>
+
+<section class="hero is-success is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <%= form_tag('/demo', method: :post, class: 'control is-grouped') do %>
+        <p class="control is-expanded">
+          <%= url_field_tag 'url', '', class: 'input', placeholder: 'https://www.google.com' %>
+        </p>
+        <p class="control">
+          <%= submit_tag 'See It Action', class: 'button is-info' %>
+        </p>
+      <% end %>
+    <img src="/sample.png" style="width: 100%;height:auto;" />
+    </div>
+  </div>
+</section>
