@@ -5,11 +5,13 @@ $ ->
   $('#video').click ->
     $('figure').hide()
     $('#workflow').show()
+    $('#workflow_html5_api').show()
     $('#screenshot').parent().removeClass('is-active')
     $('#video').parent().addClass('is-active')
 
   $('#screenshot').click ->
     $('#workflow').hide()
+    $('#workflow_html5_api').hide()
     $('figure').show()
     $('#video').parent().removeClass('is-active')
     $('#screenshot').parent().addClass('is-active')

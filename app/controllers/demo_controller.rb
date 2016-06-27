@@ -17,10 +17,15 @@ headless.start
 
 driver = Selenium::WebDriver.for :chrome
 
-driver.navigate.to url
+driver.navigate.to "http://google.com"
+
+element = driver.find_element(:name, 'q')
+element.send_keys "Hello RocketQA"
+# element.submit
+driver.find_element(:class, "lsb").click
+
 driver.save_screenshot('/home/ubuntu/projects/RocketQA/public/sample.png')
 puts driver.title
-
 
 #After do |scenario|
 #  if scenario.failed?
