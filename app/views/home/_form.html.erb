@@ -1,0 +1,41 @@
+<%= form_tag('/demo', method: :post) do %>
+  <!-- URL -->
+  <div class="control is-horizontal">
+    <div class="control-label">
+      <label class="label">URL</label>
+    </div>
+    <div class="control is-grouped">
+      <p class="control is-expanded">
+        <span class="select">
+          <select name='url'>
+            <option value="google">https://www.google.com</option>
+          </select>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Search Keyword -->
+  <div class="control is-horizontal">
+    <div class="control-label">
+      <label class="label">Keyword</label>
+    </div>
+    <div class="control is-grouped">
+      <p class="control is-expanded">
+        <%= text_field_tag 'keyword', '', class: 'input', placeholder: 'Hello RocketQA', autofocus: true %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="control is-horizontal">
+    <div class="control-label">
+      <label class="label"></label>
+    </div>
+    <div class="control is-grouped">
+      <p class="control is-expanded">
+        <%= submit_tag 'See It Action', class: 'button is-info' %>
+      </p>
+    </div>
+  </div>
+<% end %>
