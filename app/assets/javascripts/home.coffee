@@ -1,4 +1,20 @@
 $ ->
+  $('#try-demo').click ->
+    url = $('[name="url"]').val()
+    keyword = $('[name="keyword"]').val()
+    $.ajax
+      method: 'POST'
+      url: '/demo'
+      data:
+        demo:
+          url: url
+          keyword: keyword
+      success: (msg) ->
+        $('#try-demo').removeClass('is-loading')
+        window.location.href = '/'
+    $('#try-demo').addClass('is-loading')
+    return false
+
   $('#demo').submit ->
     url = $('[name="url"]').val()
     keyword = $('[name="keyword"]').val()
