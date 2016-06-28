@@ -2,10 +2,11 @@ class DemoController < ApplicationController
   def create
     url = params[:url]
     keyword = params[:keyword]
+    keyword = "Hello RocketQA" if keyword == ""
     return redirect_to root_path unless url == 'google'
 
-    require 'headless'
-    headless = Headless.new(dimensions: "1400x900x24", video: { frame_rate: 12, codec: 'libx264', provider: 'ffmpeg' })
+    # headless = Headless.new(dimensions: "1400x960x24", video: { frame_rate: 12, codec: 'libx264', provider: 'ffmpeg' })
+    headless = Headless.new(dimensions: "1400x700x24", video: { codec: 'libx264', provider: 'ffmpeg' })
 
     # headless = Headless.new(dimensions: "1400x900x24")
     headless.start
@@ -17,7 +18,7 @@ class DemoController < ApplicationController
     driver.navigate.to "https://www.google.com"
 
     element = driver.find_element(:name, 'q')
-    element.send_keys(keyword || "Hello RocketQA")
+    element.send_keys keyword
     # element.submit
     driver.find_element(:class, "lsb").click
 
@@ -33,8 +34,6 @@ class DemoController < ApplicationController
 
     headless.destroy
 
-    redirect_to root_path
-  rescue
     redirect_to root_path
   end
 end
