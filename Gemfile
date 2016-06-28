@@ -11,6 +11,8 @@ gem 'headless'
 gem 'selenium-webdriver'
 
 group :development do
+  gem 'annotate'
+  gem 'rails-erd'
   gem 'capistrano'
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false

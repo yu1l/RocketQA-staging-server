@@ -1,4 +1,25 @@
 $ ->
+  $('#subscribe').submit ->
+    $('#subscribe-success').css('display', 'none')
+    $('#subscribe-error').css('display', 'none')
+
+    email = $('.email').val()
+    $.ajax
+      method: 'POST'
+      url: '/preorder'
+      data:
+        preorder:
+          email: email
+      success: (msg) ->
+        if msg.status == 'success'
+          $('#success-text').text(msg.msg)
+          $('#subscribe-success').css('display', 'block')
+          $('#mce-EMAIL').val('')
+        else
+          $('#error-text').text(msg.msg)
+          $('#subscribe-error').css('display', 'block')
+    return false
+
   $('#workflow').css('width', $('figure').width())
   $('#workflow').css('height', $('figure').height())
 
