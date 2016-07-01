@@ -3,8 +3,7 @@
     <%= link_to root_path, class: 'nav-item' do %>
       <%= image_tag asset_path('RocketQA.png'), alt: 'RocketQA' %>
     <% end %>
-    <%= link_to 'Features', '#', class: 'nav-item' %>
-    <%= link_to 'Pricing', '#', class: 'nav-item' %>
+    <%= link_to 'Features', '#', class: 'nav-item is-disabled' %>
   </div>
 
   <span class="nav-toggle">
@@ -15,7 +14,7 @@
 
   <div class="nav-right nav-menu">
     <span class="nav-item">
-      <%= link_to 'Sign in', '#', class: 'button', id: 'signin' %>
+      <%= link_to 'Sign in', '#', class: 'button is-disabled', id: 'signin' %>
     </span>
   </div>
 </nav>

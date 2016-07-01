@@ -52,8 +52,9 @@ $ ->
           $('#subscribe-error').css('display', 'block')
     return false
 
-  $('#workflow').css('width', $('figure').width())
-  $('#workflow').css('height', $('figure').height())
+  $('figure').imagesLoaded ->
+    $('#workflow').css('width', $('figure').width())
+    $('#workflow').css('height', $('figure').height())
 
   $('#video').click ->
     $('figure').hide()
