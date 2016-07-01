@@ -1,4 +1,44 @@
 $ ->
+  $('#signin-btn').click ->
+    teamdomain = $('[name="teamdomain"]').val()
+    $.ajax
+      method: 'POST'
+      url: '/signin'
+      data:
+        team:
+          subdomain: teamdomain
+      success: (msg) ->
+        if msg
+          window.location.href = "https://#{teamdomain}.rocketqa.com"
+          $('[name="teamdomain"]').removeClass('is-danger')
+          $('.help.is-danger').css('display', 'none')
+        else
+          $('[name="teamdomain"]').addClass('is-danger')
+          $('.help.is-danger').css('display', 'block')
+        $('#signin-btn').removeClass('is-loading')
+    $('#signin-btn').addClass('is-loading')
+    return false
+
+  $('#signin').submit ->
+    teamdomain = $('[name="teamdomain"]').val()
+    $.ajax
+      method: 'POST'
+      url: '/signin'
+      data:
+        team:
+          subdomain: teamdomain
+      success: (msg) ->
+        if msg
+          window.location.href = "https://#{teamdomain}.rocketqa.com"
+          $('[name="teamdomain"]').removeClass('is-danger')
+          $('.help.is-danger').css('display', 'none')
+        else
+          $('[name="teamdomain"]').addClass('is-danger')
+          $('.help.is-danger').css('display', 'block')
+        $('#signin-btn').removeClass('is-loading')
+    $('#signin-btn').addClass('is-loading')
+    return false
+
   $('#try-demo').click ->
     url = $('[name="url"]').val()
     keyword = $('[name="keyword"]').val()

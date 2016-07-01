@@ -13,9 +13,21 @@ class HomeController < ApplicationController
     end
   end
 
+  def signin
+  end
+
+  def teamdomain
+    Team.find_by(team_params).present?
+    render json: Team.find_by(team_params).present?
+  end
+
   private
 
   def preorder_params
     params.require(:preorder).permit(:email)
+  end
+
+  def team_params
+    params.require(:team).permit(:subdomain)
   end
 end
