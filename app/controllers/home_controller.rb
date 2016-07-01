@@ -17,8 +17,8 @@ class HomeController < ApplicationController
   end
 
   def teamdomain
-    Team.find_by(team_params).present?
-    render json: Team.find_by(team_params).present?
+    result = RestClient.get 'http://localhost:4000/api/v1/teams/subdomain_check', params: { subdomain: params[:team][:subdomain] }
+    render json: result
   end
 
   private

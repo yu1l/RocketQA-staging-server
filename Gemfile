@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'headless'
 gem 'selenium-webdriver'
 
+gem 'rest-client'
+
 group :development do
   gem 'annotate'
   gem 'rails-erd'
